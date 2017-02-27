@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.spring.model.School;
 import com.spring.service.SchoolService;
-
+//To test jenkins
 
 @Path("JerseySchoolService")
 public class JerseySchoolService {
