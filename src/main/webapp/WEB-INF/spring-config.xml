@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"			>
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/springdb" />
+		<property name="username" value="root" />
+		<property name="password" value="mysql" />
+	</bean>
+
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">  
+		<property name="dataSource" ref="dataSource"></property>  
+	</bean>  
+
+<!-- Hibernate 4 SessionFactory Bean definition -->
+	<!-- bean id="hibernate4AnnotatedSessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan" value="com.spring.model"/>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.current_session_context_class">thread</prop>
+				<prop key="hibernate.show_sql">false</prop>
+			</props>
+		</property>
+	</bean-->
+
+	
+	<!--bean id="studentDAO" class="com.spring.dao.impl.StudentDaoImpl"-->
+		<!-- property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" /-->
+		<!-- property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+	<bean id="studentService" class="com.spring.service.impl.StudentServiceImpl">
+		<property name="studentDao" ref="studentDAO" />
+	</bean>
+	<bean id="home" class="com.spring.controller.HomeController">
+	<property name="studentService" ref="studentService"/>
+	</bean-->
+	
+<!-- <bean id="schoolDAO" class="com.spring.dao.impl.SchoolDaoImpl"> -->
+		<!-- property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" /-->
+<!-- 		<property name="jdbcTemplate" ref="jdbcTemplate" /> -->
+<!-- 	</bean> -->
+<!-- 	<bean id="schoolService" class="com.spring.service.impl.SchoolServiceImpl"> -->
+<!-- 		<property name="schoolDao" ref="schoolDAO" /> -->
+<!-- 	</bean> -->
+<!-- 	<bean id="com" class="com.spring.controller.HomeController"> -->
+<!-- 	<property name="schoolService" ref="schoolService"/> -->
+<!-- 	</bean> -->
+</beans>
