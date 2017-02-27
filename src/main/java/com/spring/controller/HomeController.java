@@ -30,6 +30,7 @@ public class HomeController {
 	}
 	@RequestMapping("/create")
 	public @ResponseBody School createStudent(){
+		//this is to create Student
 		School school = new School();
 	//	school.setId(new Long(4));
 		school.setName("little buds");
