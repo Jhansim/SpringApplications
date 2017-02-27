@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.spring.model.School;
 import com.spring.service.SchoolService;
-//To test jenkins
+
 
 @Path("JerseySchoolService")
 public class JerseySchoolService {
@@ -35,6 +35,7 @@ public class JerseySchoolService {
 	@Path("/schools")
 	@Produces("application/json")
 	public List<School> resourceMethodGET() { 
+		System.out.println("hi jersey");
 		return schoolService.getSchoolList(2,6);
 	}
 
