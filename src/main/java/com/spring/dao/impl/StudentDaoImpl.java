@@ -16,7 +16,7 @@ import com.spring.model.Student;
 public class StudentDaoImpl implements StudentDao {
 	
 	private SessionFactory sessionFactory;
-	
+	//Method to configure session factory from spring config file
 	public void setSessionFactory(SessionFactory sessionFactory){
 		this.sessionFactory = sessionFactory;
 	}
