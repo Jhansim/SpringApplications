@@ -20,7 +20,7 @@ public class RestfulController {
 	@Autowired
 	SchoolService schoolService; 
 	
-	//Method to retrieve Schools list
+	//Method to retrieve Schools list-update
 	@RequestMapping(value="/Schools",method = RequestMethod.POST ,consumes = MediaType.APPLICATION_JSON_VALUE)
 	public List<School> getSchools(@RequestBody InputJson input){
 		return schoolService.getSchoolList(input.getStartIndex(), input.getEndIndex());
